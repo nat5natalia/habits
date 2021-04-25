@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1 class="text-center" align="center" style="margin-top: 8%">Авторизация</h1>
+{% with messages = get_flashed_messages() %}
+{% if messages %}
+    <div>
+        {{ messages[0] }}
+    </div>
+{% endif %}
+{% endwith %}
+<form method="POST" action="/login">
+ <div class="col-xs-12" align="center">
+ <div class="form-group" align="center">
+ <input type="email" name="email" class="form-control" placeholder="Введите почту"  align="center" style="margin-top: 1%"/>
+ </div>
+ </div>
+ <div class="col-xs-12" align="center">
+ </div>
+ <div class="col-xs-12" align="center">
+ <div class="form-group" align="center">
+ <input type="password" class="form-control" name="pass" placeholder="Введите пароль" align="center" style="margin-top: 1%"/>
+ </div>
+ </div>
+ <div class="col-xs-12" align="center">
+ </div>
+ <div class="text-center col-xs-12" align="center">
+     <button class="w-100 btn btn-lg btn-primary" type="submit">Войти</button></div>
+</form>
+{% endblock %}

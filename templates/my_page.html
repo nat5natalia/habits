@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div style="margin-top: 1%"><img src="../static/4.png" align="left"  height="300" width="300">
+<h3 style="background-color: #febd3f;
+ border: 2px solid black;
+ margin-left: 30%" align="left">{{username}}</h3>
+<h3 style="background-color: #febd3f;
+ border: 2px solid black;
+ margin-top: 1%;
+ margin-left: 30%" align="right">{{email}}</h3></div>
+<div>
+    {% if now %}
+        <div>
+            <h3 style="background-color: #febd3f;
+ border: 3px double black;
+ margin-top: 25%">Осваиваю привычку</h3>
+        </div>
+    {% else %}
+       <div>
+           <h3 style="background-color: #febd3f;
+ border: 3px double black;
+ margin-top: 25%">Не осваиваю привычку</h3>
+       </div>
+    {% endif %}
+    <h3 style="background-color: #febd3f;
+ border: 3px double black;
+ margin-top: 1%">Уже освоил(а) {{copr}} привычек</h3>
+
+</div>
+{% endblock %}

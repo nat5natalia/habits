@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h1 style="margin-top: 1%">Топ пользователей</h1>
+     <ul>
+    {% for user in userlist %}
+    <li>
+        <h3 style="background-color: #febd3f;
+ border: 2px solid black;
+ margin-top: 3%">{{user[0]}} освоил {{user[1]}} привычек</h3>
+    </li>
+    {% endfor %}
+</ul>
+<img src="../static/1.png">
+
+{% endblock %}

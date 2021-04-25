@@ -1,0 +1,56 @@
+<html lang="ru" class="h-100"><head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet"
+          href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+          integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+          crossorigin="anonymous">
+    <title>{{title}}</title>
+    <style>
+          body {
+          background: #FFDB95 url(../static/fon.jpg); /* Цвет фона и путь к файлу */
+   }
+  </style>
+  </head>
+  <body class="d-flex flex-column h-100">
+
+<header>
+  <!-- Fixed navbar -->
+   <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #febd3f">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="{{ url_for('main.profile') }}">Habits</a>
+    <div class="collapse navbar-collapse" id="navbarText">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="{{ url_for('main.habit') }}">Привычка</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{{ url_for('main.top') }}">Топ</a>
+        </li>
+      </ul>
+    </div>
+    <div align="right"><ul class="nav">
+      {% if registred %}
+      <li class="nav-item"><a href="{{ url_for('auth.logout') }}" class="nav-link link-dark px-2">Выйти</a></li>
+      {% else %}
+      <li class="nav-item"><a href="{{ url_for('auth.signup') }}" class="nav-link link-dark px-2">Зарегестрироваться</a></li>
+      <li class="nav-item"><a href="{{ url_for('auth.login') }}" class="nav-link link-dark px-2">Войти</a></li>
+      {% endif %}
+    </ul></div>
+  </div>
+</nav>
+</header>
+
+<!-- Begin page content -->
+<main role="main" class="container">
+    {% block content %}{% endblock %}
+</main>
+<footer class="footer mt-auto py-3" style="background-color: #febd3f">
+  <div class="container">
+    <span class="text-muted">Проектная работа Соколовой Натальи и Хромовой Ульяны</span>
+  </div>
+</footer>
+
+<script src="/docs/5.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf" crossorigin="anonymous"></script>
+
+</body></html>

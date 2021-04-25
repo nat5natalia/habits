@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+
+{% block content %}
+     <div class="container">
+ <div class="row">
+ <div class="col-md-6 col-md-offset-3 well">
+ <h3 class="text" style="margin-top: 5%">Моя привычка</h3>
+  {% with messages = get_flashed_messages() %}
+{% if messages %}
+    <div>
+        {{ messages[0] }}
+    </div>
+{% endif %}
+{% endwith %}
+ <form class="form" method = "POST">
+ <div class="col-xs-12">
+ <div class="form-group" style="margin-top: 5%">
+  <label for="name">Название привычки</label>
+ <input type="text" class="form-control" name="name" placeholder="Введите название" id="name"/>
+ </div>
+ </div>
+ <div class="col-xs-12">
+ <div class="form-group" style="margin-top: 5%">
+  <label for="day" >Кол-во дней (минимум-30)</label>
+ <input type="number" name="num" min="30" value="30" id="day">
+ </div>
+ </div>
+   <div class="text-center col-xs-12" align="center">
+     <button class="w-100 btn btn-lg btn-primary" type="submit">Создать</button></div>
+ </form>
+
+ </div>
+ </div>
+     </div>
+{% endblock %}
