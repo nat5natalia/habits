@@ -1,0 +1,57 @@
+from telegram.ext import Updater, MessageHandler, Filters
+from telegram.ext import CommandHandler
+from telegram import ReplyKeyboardMarkup
+
+
+def otvet(update, context):
+    update.message.reply_text('Привет! Я - бот хороших привычек.', reply_markup=markup)
+    update.message.reply_text(
+        "Привет, дорогой друг или подруга. "
+        "Если ты хочешь изменить свою жизнь, но"
+        " не знаешь, что делать, это приложение для тебя."
+        " Меняя привычки, мы меняем свою жизнь. Сделать"
+        " это легко только на словах. Мы начинаем правильно "
+        "питаться, но нас хватает на неделю. В фитнес мы ходим"
+        " от случая к случаю, а иностранный язык учим и того реже! "
+        "К счастью, чтобы добиться стойких изменений, не нужно приносить"
+        " больших жертв, достаточно просто подойти с научной точки зрения"
+        " и прислушаться к опыту тех, кому это удалось. От твоих привычек "
+        "зависит многое: здоровье, отношения с другими людьми, настроение,"
+        " успехи на работе, бытовой комфорт. Действия, которые ты каждый день"
+        " совершаешь автоматически, определяют всю твою жизнь в целом. Чтобы "
+        "идти верным курсом, нужно лишь выработать правильную манеру поведения "
+        "и постоянно ее придерживаться. А главное, для этого тебе не потребуется"
+        " железная сила воли. Нужно лишь завести полезные привычки. Учеными"
+        " доказано, что привычка формируется за 28-30 дней. Это приложение"
+        " поможет создать привычку и следить за соблюдением на протяжении всего"
+        " периода ее формирования. Если ты хочешь изменить свою жизнь к лучшему,"
+        " то начни прямо сейчас - зарегистрируйся и создай свою первую привычку.", reply_markup=markup)
+    update.message.reply_text(
+        "Сайт: https://godhabitssite", reply_markup=markup)
+
+
+def more(update, context):
+    pass
+
+
+def main():
+    global markup
+    updater = Updater('1787324951:AAE3ZBDuJmWvH6FmVgnV8WJ8zzgdA_PJEqg', use_context=True)
+
+    dp = updater.dispatcher
+
+    text_handler = MessageHandler(Filters.text, otvet)
+
+    dp.add_handler(text_handler)
+
+    dp.add_handler(CommandHandler("more", more))
+    reply_keyboard = [['/more']]
+    markup = ReplyKeyboardMarkup(reply_keyboard, one_time_keyboard=False)
+
+    updater.start_polling()
+
+    updater.idle()
+
+
+if __name__ == '__main__':
+    main()
